@@ -38,6 +38,7 @@
     <properties>
         <sling.java.version>8</sling.java.version>
         <IT.expected.bundles.count>126</IT.expected.bundles.count>
+        <composum.version>1.12.0</composum.version>
         <jackrabbit.version>2.20.0</jackrabbit.version>
         <jackson.version>2.11.1</jackson.version>
         <oak.version>1.26.0</oak.version>
@@ -125,7 +126,7 @@
                             <goal>attach-featurearchives</goal>
                         </goals>
                         <configuration>
-                            <replacePropertyVariables>jackrabbit.version,jackson.version,oak.version,slf4j.version</replacePropertyVariables>
+                            <replacePropertyVariables>composum.version,jackrabbit.version,jackson.version,oak.version,slf4j.version</replacePropertyVariables>
                         </configuration>
                     </execution>
                 </executions>
