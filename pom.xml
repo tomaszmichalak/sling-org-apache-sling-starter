@@ -258,25 +258,10 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.40.2</version>
+                <version>0.40.3</version>
                 <configuration>
                     <skip>${docker.skip}</skip>
                     <containerNamePattern>%e</containerNamePattern>
-                    <images>
-                        <image>
-                            <alias>mongo</alias>
-                            <name>${mongo.container.image}</name>
-                            <run>
-                                <ports>
-                                    <port>${mongo.port}:27017</port>
-                                </ports>
-                                <wait>
-                                    <log>CONTROL</log>
-                                    <time>60000</time>
-                                </wait>
-                            </run>
-                        </image>
-                    </images>
                     <stopMode>kill</stopMode>
                 </configuration>
                 <executions>
@@ -287,6 +272,23 @@
                         <goals>
                             <goal>start</goal>
                         </goals>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <alias>mongo</alias>
+                                    <name>${mongo.container.image}</name>
+                                    <run>
+                                        <ports>
+                                            <port>${mongo.port}:27017</port>
+                                        </ports>
+                                        <wait>
+                                            <log>CONTROL</log>
+                                            <time>60000</time>
+                                        </wait>
+                                    </run>
+                                </image>
+                            </images>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>stop-mongo</id>
@@ -295,6 +297,23 @@
                         <goals>
                             <goal>stop</goal>
                         </goals>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <alias>mongo</alias>
+                                    <name>${mongo.container.image}</name>
+                                    <run>
+                                        <ports>
+                                            <port>${mongo.port}:27017</port>
+                                        </ports>
+                                        <wait>
+                                            <log>CONTROL</log>
+                                            <time>60000</time>
+                                        </wait>
+                                    </run>
+                                </image>
+                            </images>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>build-docker-image</id>
@@ -323,8 +342,6 @@
                             </images>
                         </configuration>
                     </execution>
-
-
                 </executions>
             </plugin>
             <!-- launch the Sling instances to test -->
